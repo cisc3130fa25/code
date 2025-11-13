@@ -60,22 +60,22 @@ class Name {
 // As a result, a HashSet that uses Names as elements, or a HashMap that
 // uses Names as keys, will not work correctly.
 public class HashCodeEffectDemo {
-    public static void main(String[] args) {
+    static void main() {
         Set<Name> set = new HashSet<>();
         set.add(new Name("Jane", "Doe"));
-        System.out.println("set = " + set);
-        System.out.println("set contains Jane Doe? " +
+        IO.println("set = " + set);
+        IO.println("set contains Jane Doe? " +
                            set.contains(new Name("Jane", "Doe")));
         set.add(new Name("Jane", "Doe"));
-        System.out.println("set = " + set);
-        System.out.println();
+        IO.println("set = " + set);
+        IO.println();
 
         Map<Name, Integer> map = new HashMap<>();
         map.put(new Name("Jane", "Doe"), 4);
-        System.out.println("map = " + map);
-        System.out.println("map contains key Jane Doe? " +
+        IO.println("map = " + map);
+        IO.println("map contains key Jane Doe? " +
                            map.containsKey(new Name("Jane", "Doe")));
         map.put(new Name("Jane", "Doe"), 10);
-        System.out.println("map = " + map);
+        IO.println("map = " + map);
     }
 }

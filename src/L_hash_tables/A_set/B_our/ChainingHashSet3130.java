@@ -1,7 +1,9 @@
 package L_hash_tables.A_set.B_our;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class ChainingHashSet3130<E> implements Set3130<E> {
     // Representation: a hash table.
@@ -49,7 +51,7 @@ public class ChainingHashSet3130<E> implements Set3130<E> {
             table[index] = new LinkedList<>();
         }
 
-        table[index].add(element);
+        table[index].addFirst(element); // or addLast, it doesn't matter
         size++;
 
         if (loadFactor() > maxLoadFactor) {
@@ -128,6 +130,20 @@ public class ChainingHashSet3130<E> implements Set3130<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        // The following uses O(n) time and O(n) space.
+        // It is possible to make both be O(1).
+        // But it is too hard for me.
+
+        List<E> list = new ArrayList<>();
+
+        for (LinkedList<E> bucket : table) {
+            if (bucket != null) {
+                for (E element : bucket) {
+                    list.add(element);
+                }
+            }
+        }
+
+        return list.iterator();
     }
 }
