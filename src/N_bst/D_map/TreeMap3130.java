@@ -1,4 +1,4 @@
-package N_bst.B_map;
+package N_bst.D_map;
 
 public class TreeMap3130<K, V> implements NavigableMap3130<K, V> {
     @Override

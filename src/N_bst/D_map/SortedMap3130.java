@@ -1,4 +1,4 @@
-package N_bst.B_map;
+package N_bst.D_map;
 
 import L_hash_tables.B_map.Map3130;
 

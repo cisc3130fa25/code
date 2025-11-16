@@ -29,7 +29,7 @@ public class BinaryTreeMethods {
     public static <E> void printInorderTraversal(BinaryTreeNode<E> root) {
         if (root != null) {
             printInorderTraversal(root.left);
-            System.out.print(root.data + " ");
+            IO.print(root.data + " ");
             printInorderTraversal(root.right);
         }
     }
@@ -39,13 +39,13 @@ public class BinaryTreeMethods {
         if (root != null) {
             printPostorderTraversal(root.left);
             printPostorderTraversal(root.right);
-            System.out.print(root.data + " ");
+            IO.print(root.data + " ");
         }
     }
 
     public static <E> void printPreorderTraversal(BinaryTreeNode<E> root) {
         if (root != null) {
-            System.out.print(root.data + " ");
+            IO.print(root.data + " ");
             printPostorderTraversal(root.left);
             printPostorderTraversal(root.right);
         }
@@ -67,6 +67,7 @@ public class BinaryTreeMethods {
         }
     }
 
+    // aka breadth-first traversal
     public static <E> void printLevelOrderTraversal(BinaryTreeNode<E> root) {
         Queue<BinaryTreeNode<E>> queue = new ArrayDeque<>();
 
@@ -78,27 +79,8 @@ public class BinaryTreeMethods {
             int levelSize = queue.size();
 
             for (int i = 0; i < levelSize; i++) {
-                BinaryTreeNode<E> current = 
-            }
-        }
-    }
-
-    // aka breadth-first traversal
-    public static <E> List<List<E>> levelOrderList(BinaryTreeNode<E> root) {
-        List<List<E>> result = new ArrayList<>();
-        Queue<BinaryTreeNode<E>> queue = new ArrayDeque<>();
-
-        if (root != null) {
-            queue.add(root);
-        }
-
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            List<E> level = new ArrayList<>(levelSize);
-
-            for (int i = 0; i < levelSize; i++) {
                 BinaryTreeNode<E> current = queue.remove();
-                level.add(current.data);
+                IO.print(current.data + " ");
 
                 if (current.left != null) {
                     queue.add(current.left);
@@ -109,9 +91,11 @@ public class BinaryTreeMethods {
                 }
             }
 
-            result.add(level);
+            IO.println(); // end of one level
         }
+    }
 
-        return result;
+    public static <E> List<List<E>> levelOrderList(BinaryTreeNode<E> root) {
+        return null; // TODO for hw
     }
 }
