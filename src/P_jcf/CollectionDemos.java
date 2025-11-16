@@ -6,7 +6,7 @@ void main() {
     // Primary methods: see Iterable, plus: size(), add(e), remove(o), contains(o)
 
     // SequencedCollection: a Collection whose elements have a predicable order.
-    // Primary methods:  see Collection,
+    // Primary methods: see Collection,
     // plus: addFirst(e), addLast(e), getFirst(), getLast(), removeFirst(), removeLast(), reversed()
 
     // List: a SequencedCollection that offers access via indexes.

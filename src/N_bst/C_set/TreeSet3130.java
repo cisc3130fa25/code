@@ -9,6 +9,8 @@ import java.util.NoSuchElementException;
 public class TreeSet3130<E> implements NavigableSet3130<E> {
     // Representation: a binary search tree.
     // To keep things simpler, it is not a balanced BST, unlike in the JCF.
+    // As a result, many methods that run in O(log n) time in the JCF,
+    // here run much less efficiently in O(n) time.
 
     private static class Node<E> {
         E data;

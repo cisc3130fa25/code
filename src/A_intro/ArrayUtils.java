@@ -1,3 +1,5 @@
+package A_intro;
+
 public class ArrayUtils {
     /**
      * Returns the maximum element of a.
