@@ -1,11 +1,11 @@
 package B_recursion;
 
 public class Palindrome {
-    public static void main(String[] args) {
-        System.out.println(isPalindrome("racecar"));
-        System.out.println(isPalindrome("abcdba"));
+    static void main() {
+        IO.println(isPalindrome("racecar"));
+        IO.println(isPalindrome("abcdba"));
 
-        System.out.println(isPalindromeMoreEfficient("racecar"));
+        IO.println(isPalindromeMoreEfficient("racecar"));
     }
 
     public static boolean isPalindrome(String s) {

@@ -1,16 +1,16 @@
 package N_bst.C_set;
 
-import java.util.ArrayList;
+import java.util.ArrayDeque;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 public class TreeSet3130<E> implements NavigableSet3130<E> {
     // Representation: a binary search tree.
     // To keep things simpler, it is not a balanced BST, unlike in the JCF.
     // As a result, many methods that run in O(log n) time in the JCF,
-    // here run much less efficiently in O(n) time.
+    // here run much less efficiently, in O(n) time.
 
     private static class Node<E> {
         E data;
@@ -27,7 +27,6 @@ public class TreeSet3130<E> implements NavigableSet3130<E> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private class NaturalOrderComparator implements Comparator<E> {
         @Override
         public int compare(E e1, E e2) {
@@ -149,21 +148,39 @@ public class TreeSet3130<E> implements NavigableSet3130<E> {
     }
 
     @Override
-    public Iterator<E> iterator() { // likely con be done much more efficiently
-        return toInorderList().iterator();
+    public Iterator<E> iterator() {
+        return new BstInorderIterator();
     }
 
-    private List<E> toInorderList() {
-        List<E> list = new ArrayList<>();
-        toInorderList(root, list);
-        return list;
-    }
+    // Leetcode 173: https://leetcode.com/problems/binary-search-tree-iterator/
+    private class BstInorderIterator implements Iterator<E> {
+        private final Deque<Node<E>> stack = new ArrayDeque<>();
 
-    private void toInorderList(Node<E> root, List<E> list) {
-        if (root != null) {
-            toInorderList(root.left, list);
-            list.add(root.data);
-            toInorderList(root.right, list);
+        public BstInorderIterator() {
+            pushLeft(root);
+        }
+
+        private void pushLeft(Node<E> node) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        @Override
+        public E next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+
+            Node<E> node = stack.pop();
+            pushLeft(node.right);
+            return node.data;
         }
     }
 }

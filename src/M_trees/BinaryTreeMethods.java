@@ -2,12 +2,13 @@ package M_trees;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Queue;
 
-public class BinaryTreeMethods {
-    // returns the size of the binary tree that is rooted at the given node
-    public static int size(BinaryTreeNode<?> root) {
+class BinaryTreeMethods {
+    // Returns the size of the binary tree that is rooted at the given node.
+    static int size(BinaryTreeNode<?> root) {
         if (root == null) {
             return 0;
         } else {
@@ -16,7 +17,8 @@ public class BinaryTreeMethods {
     }
 
     // Returns the height of the binary tree that is rooted at the given node.
-    // We consider the height of an empty (null) tree to be -1.
+    // The height of a tree is a length of the longest path from the root to a
+    // leaf (childless node). We consider the height of an empty tree to be -1.
     public static int height(BinaryTreeNode<?> root) {
         if (root == null) {
             return -1;
@@ -26,7 +28,7 @@ public class BinaryTreeMethods {
     }
 
     // prints the inorder traversal of the binary tree that is rooted at the given node
-    public static <E> void printInorderTraversal(BinaryTreeNode<E> root) {
+    public static void printInorderTraversal(BinaryTreeNode<?> root) {
         if (root != null) {
             printInorderTraversal(root.left);
             IO.print(root.data + " ");
@@ -34,8 +36,24 @@ public class BinaryTreeMethods {
         }
     }
 
+    // using a stack to mimic recursion without using recursion
+    public static <E> void printInorderTraversalUsingStack(BinaryTreeNode<E> root) {
+        Deque<BinaryTreeNode<E>> stack = new ArrayDeque<>();
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+
+            root = stack.pop();
+            IO.print(root.data + " ");
+            root = root.right;
+        }
+    }
+
     // prints the postorder traversal of the binary tree that is rooted at the given node
-    public static <E> void printPostorderTraversal(BinaryTreeNode<E> root) {
+    public static void printPostorderTraversal(BinaryTreeNode<?> root) {
         if (root != null) {
             printPostorderTraversal(root.left);
             printPostorderTraversal(root.right);
@@ -43,7 +61,7 @@ public class BinaryTreeMethods {
         }
     }
 
-    public static <E> void printPreorderTraversal(BinaryTreeNode<E> root) {
+    public static void printPreorderTraversal(BinaryTreeNode<?> root) {
         if (root != null) {
             IO.print(root.data + " ");
             printPostorderTraversal(root.left);
