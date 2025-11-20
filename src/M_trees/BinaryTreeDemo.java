@@ -1,4 +1,5 @@
 import M_trees.BinaryTreeNode;
+import M_trees.BinaryTreeMethods;
 
 void main() {
     BinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(15,
@@ -40,6 +41,28 @@ void main() {
          \
           3
     */
+
+    IO.println(BinaryTreeMethods.size(root1)); // 10
+    IO.println(BinaryTreeMethods.size(root2)); // 5
+
+    IO.println(BinaryTreeMethods.height(root1)); // 4
+    IO.println(BinaryTreeMethods.height(root2)); // 3
+
+    BinaryTreeMethods.printInorderTraversal(root1); // 3 6 13 10 15 8 4 2 12 9
+    IO.println();
+    BinaryTreeMethods.printPreorderTraversal(root1); // 15 6 3 10 13 4 8 2 9 12
+    IO.println();
+    BinaryTreeMethods.printPostorderTraversal(root1); // 3 13 10 6 8 12 9 2 4 15
+    IO.println();
+    BinaryTreeMethods.printLevelOrderTraversal(root1);
+    // 15
+    // 6 4
+    // 3 10 8 2
+    // 13 9
+    // 12
+
+    List<Integer> list = BinaryTreeMethods.preorderList(root1);
+    IO.println(list); // [15, 6, 3, 10, 13, 4, 8, 2, 9, 12]
 
     /*
     Ways to traverse (visit all nodes of) a binary tree:

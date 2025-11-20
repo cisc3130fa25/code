@@ -138,12 +138,12 @@ public class TreeSet3130<E> implements NavigableSet3130<E> {
     }
 
     @Override
-    public E higher(E e) {
+    public E lower(E e) {
         return null; // TODO
     }
 
     @Override
-    public E lower(E e) {
+    public E higher(E e) {
         return null; // TODO
     }
 

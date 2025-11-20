@@ -61,6 +61,7 @@ class BinaryTreeMethods {
         }
     }
 
+    // // prints the preorder traversal of the binary tree that is rooted at the given node
     public static void printPreorderTraversal(BinaryTreeNode<?> root) {
         if (root != null) {
             IO.print(root.data + " ");
@@ -111,9 +112,5 @@ class BinaryTreeMethods {
 
             IO.println(); // end of one level
         }
-    }
-
-    public static <E> List<List<E>> levelOrderList(BinaryTreeNode<E> root) {
-        return null; // TODO for hw
     }
 }
