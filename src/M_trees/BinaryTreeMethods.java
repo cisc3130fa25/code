@@ -6,9 +6,9 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Queue;
 
-class BinaryTreeMethods {
+public class BinaryTreeMethods {
     // Returns the size of the binary tree that is rooted at the given node.
-    static int size(BinaryTreeNode<?> root) {
+    public static int size(BinaryTreeNode<?> root) {
         if (root == null) {
             return 0;
         } else {
@@ -65,8 +65,8 @@ class BinaryTreeMethods {
     public static void printPreorderTraversal(BinaryTreeNode<?> root) {
         if (root != null) {
             IO.print(root.data + " ");
-            printPostorderTraversal(root.left);
-            printPostorderTraversal(root.right);
+            printPreorderTraversal(root.left);
+            printPreorderTraversal(root.right);
         }
     }
 
@@ -78,6 +78,7 @@ class BinaryTreeMethods {
         return list;
     }
 
+    // fills the list
     private static <E> void preorderListHelper(BinaryTreeNode<E> root, List<E> list) {
         if (root != null) {
             list.add(root.data);
