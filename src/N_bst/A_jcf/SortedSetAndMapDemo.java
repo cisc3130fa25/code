@@ -8,10 +8,10 @@ void main() {
     IO.println(set1); // [bird, sky, winter]
 
     // SortedSet<Object> objects = new TreeSet<>();
-    // scanners.add(new Object()); // throws ClassCastException
+    // objects.add(new Object()); // throws ClassCastException
 
     // sorted set by length
-    Comparator<String> byLength = new Comparator<String>() {
+    Comparator<String> byLength = new Comparator<>() {
         @Override
         public int compare(String s1, String s2) {
             return Integer.compare(s1.length(), s2.length());

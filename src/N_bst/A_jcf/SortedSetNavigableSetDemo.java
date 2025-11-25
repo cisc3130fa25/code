@@ -8,8 +8,6 @@ void main() {
 
     // NavigableSt extends SortedSet with some additional methods,
     // such as higher(e) and lower(e). It is still sorted, of course.
-
-    // higher(e):
     NavigableSet<Integer> navigableSet = new TreeSet<>(Set.of(5, 10, 2, 7, 3));
     IO.println(navigableSet); // [2, 3, 5, 7, 10]
     IO.println(navigableSet.getFirst()); // 2
