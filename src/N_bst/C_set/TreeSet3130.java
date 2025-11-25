@@ -8,9 +8,12 @@ import java.util.NoSuchElementException;
 
 public class TreeSet3130<E> implements NavigableSet3130<E> {
     // Representation: a binary search tree.
-    // To keep things simpler, it is not a balanced BST, unlike in the JCF.
-    // As a result, many methods that run in O(log n) time in the JCF,
-    // here run much less efficiently, in O(n) time.
+    // Methods add and contains run in O(h) time, where h is the height of the tree.
+    // However, since this BST is not balanced, h might go up to n, where n is the
+    // number of nodes in the tree, so the methods run in O(n) time.
+    // In the JCF's TreeSet, however, the BST is balanced.
+    // As a result, in the JCF's TreeSet, methods add and contains (and remove,
+    // and some more) run in O(log n) time, which is very efficient.
 
     private static class Node<E> {
         E data;
@@ -104,7 +107,7 @@ public class TreeSet3130<E> implements NavigableSet3130<E> {
 
     @Override
     public boolean remove(Object o) {
-        throw new UnsupportedOperationException("not yet implemented"); // TODO
+        throw new UnsupportedOperationException("not implemented in this course");
     }
 
     @Override
@@ -139,12 +142,36 @@ public class TreeSet3130<E> implements NavigableSet3130<E> {
 
     @Override
     public E lower(E e) {
-        return null; // TODO
+        Node<E> curr = root;
+        E result = null;
+
+        while (curr != null) {
+            if (comparator.compare(e, curr.data) <= 0) {
+                curr = curr.left;
+            } else {
+                result = curr.data;
+                curr = curr.right;
+            }
+        }
+
+        return result;
     }
 
     @Override
     public E higher(E e) {
-        return null; // TODO
+        Node<E> curr = root;
+        E result = null;
+
+        while (curr != null) {
+            if (comparator.compare(e, curr.data) >= 0) {
+                curr = curr.right;
+            } else {
+                result = curr.data;
+                curr = curr.left;
+            }
+        }
+
+        return result;
     }
 
     @Override

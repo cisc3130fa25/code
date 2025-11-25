@@ -4,10 +4,11 @@ void main() {
     set1.add("bird");
     set1.add("winter");
     set1.add("sky");
+    set1.add("sky");
     IO.println(set1); // [bird, sky, winter]
 
-    // SortedSet<Scanner> scanners = new TreeSet<>();
-    // scanners.add(new Scanner(System.in)); // throws ClassCastException
+    // SortedSet<Object> objects = new TreeSet<>();
+    // scanners.add(new Object()); // throws ClassCastException
 
     // sorted set by length
     Comparator<String> byLength = new Comparator<String>() {
@@ -46,6 +47,7 @@ void main() {
     set5.add("cat");
     IO.println(set5); // [cat, sky, bird, winter]
 
+    // sorted map
     SortedMap<String, Integer> map = new TreeMap<>();
     map.put("bird", 3);
     map.put("winter", 5);
