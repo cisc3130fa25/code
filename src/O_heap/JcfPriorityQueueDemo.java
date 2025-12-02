@@ -1,4 +1,4 @@
-import O_heap.Client;
+import O_heap.Customer;
 
 // The JCF's priority queue is a MIN priority queue, built upon a min heap; the head is the min.
 void main() {
@@ -15,15 +15,15 @@ void main() {
     }
     IO.println();
 
-    Queue<Client> clients = new PriorityQueue<>(Comparator.reverseOrder());
-    clients.add(new Client("Jim", 3));
-    clients.add(new Client("Jane", 2));
-    clients.add(new Client("Mark", 4));
-    clients.add(new Client("Nancy", 2));
-    IO.println(clients);
+    Queue<Customer> customers = new PriorityQueue<>(Comparator.reverseOrder());
+    customers.add(new Customer("Jim", 3));
+    customers.add(new Customer("Jane", 2));
+    customers.add(new Customer("Mark", 4));
+    customers.add(new Customer("Nancy", 2));
+    IO.println(customers);
 
-    while (!clients.isEmpty()) {
-        IO.println(clients.remove());
+    while (!customers.isEmpty()) {
+        IO.println(customers.remove());
     }
 
     // TODO: https://leetcode.com/problems/take-gifts-from-the-richest-pile/

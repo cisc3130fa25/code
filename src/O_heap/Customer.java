@@ -1,14 +1,14 @@
 package O_heap;
 
-public record Client(String name, int importance) implements Comparable<Client> {
+public record Customer(String name, int importance) implements Comparable<Customer> {
     @Override
     public String toString() {
         return name + " " + importance;
     }
 
-    // compares clients based on importance level
+    // compares customers based on importance level
     @Override
-    public int compareTo(Client other) {
+    public int compareTo(Customer other) {
         return Integer.compare(this.importance, other.importance);
     }
 }
