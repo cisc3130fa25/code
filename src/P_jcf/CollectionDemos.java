@@ -14,6 +14,7 @@ void main() {
     // plus: add(e, index), remove(index), get(index), set(index),
     // indexOf(o), subList(index1, index2), sort(comparator)
     List<Integer> unmodifiableList = List.of(1, 2, 3);
+    List<Integer> modifiableButNotResizableList = Arrays.asList(1, 2, 3);
     List<Integer> list1 = new ArrayList<>();
     List<Integer> list2 = new LinkedList<>();
 
