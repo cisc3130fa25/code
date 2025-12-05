@@ -11,14 +11,14 @@ void main() {
 
     // List: a SequencedCollection that offers access via indexes.
     // Primary methods: see SequencedCollection,
-    // plus: add(e, index), remove(index), get(index), set(index),
+    // plus: add(index, e), remove(index), get(index), set(index, e),
     // indexOf(o), subList(index1, index2), sort(comparator)
     List<Integer> unmodifiableList = List.of(1, 2, 3);
     List<Integer> modifiableButNotResizableList = Arrays.asList(1, 2, 3);
     List<Integer> list1 = new ArrayList<>();
     List<Integer> list2 = new LinkedList<>();
 
-    // Set: a Collection with unspecified order that forbids duplicates.
+    // Set: a Collection that forbids duplicates.
     // Primary methods: see Collection.
     Set<Integer> unmodifiableSet = Set.of(1, 2, 3);
     Set<Integer> set = new HashSet<>();
