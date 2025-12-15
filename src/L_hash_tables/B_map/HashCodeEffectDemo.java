@@ -50,12 +50,12 @@ class Name {
     }
 }
 
-// Try running this program with Name's hashCode method commented out.
+// Try running this program with phonebook.Name's hashCode method commented out.
 // If hashCode is commented out, we just inherit Object's hashCode method,
 // which returns distinct integers for distinct objects. This is a problem,
-// since the Name class overrides the equals method such that two distinct
+// since the phonebook.Name class overrides the equals method such that two distinct
 // Names can be equal:
-//      Name n1 = new Name("A", "B"), n2 = new Name("A", "B");
+//      phonebook.Name n1 = new phonebook.Name("A", "B"), n2 = new phonebook.Name("A", "B");
 // Now n1.equals(n2) is true, but they don't have the same hash code.
 // As a result, a HashSet that uses Names as elements, or a HashMap that
 // uses Names as keys, will not work correctly.

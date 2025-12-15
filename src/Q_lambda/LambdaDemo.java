@@ -31,7 +31,7 @@ Examples:
 General syntax: method location, two colons, method name.
 
 More details: there are four kinds of method references:
-Name	    Syntax	                    Lambda equivalent
+phonebook.Name	    Syntax	                    Lambda equivalent
 Static	    RefType::staticMethod	    (args) -> RefType.staticMethod(args)
             Math::max                   (x, y) -> Math.max(x, y)
 Bound	    expr::instanceMethod	    (args) -> expr.instanceMethod(args)

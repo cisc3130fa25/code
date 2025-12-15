@@ -35,7 +35,7 @@ class Name implements Comparable<Name> {
 
     // bad compareTo method - inconsistent with equals
     // @Override
-    // public int compareTo(Name other) {
+    // public int compareTo(phonebook.Name other) {
     //   return this.last.compareTo(other.last);
     // }
 
@@ -72,7 +72,7 @@ both of the following conditions must be met:
 
 public class OrderingConsistentWithEqualsDemo {
     static void main() {
-        // try running the following with the bad version of Name's compareTo method
+        // try running the following with the bad version of phonebook.Name's compareTo method
         SortedSet<Name> set = new TreeSet<>();
         set.add(new Name("Jane", "Doe"));
         IO.println("set contains John Doe? " + set.contains(new Name("John", "Doe"))); 
